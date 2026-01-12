@@ -13,7 +13,7 @@ A simple React Native application for managing items with Redux state management
 ## Prerequisites
 
 - Node.js (v14 or higher)
-- npm or yarn
+- npm
 
 ## Installation
 
