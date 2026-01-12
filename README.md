@@ -1,97 +1,104 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Items Management App
 
-# Getting Started
+A simple React Native application for managing items with Redux state management.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- Add new items with validation
+- View all items in a list
+- Delete items with confirmation
+- Redux state management
+- Clean and simple UI
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Prerequisites
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- Node.js (v14 or higher)
+- npm or yarn
 
-```sh
-# Using npm
+## Installation
+
+```bash
+cd ReactNativeTakehome
+npm install
+```
+
+## Install Navigation Dependencies
+
+```bash
+npm install @react-navigation/native @react-navigation/native-stack
+npm install react-native-screens react-native-safe-area-context
+```
+
+## Steps to Run the App
+
+### 1. Start the Metro Bundler
+
+```bash
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Build and run your app
+### 2. Run on iOS (Mac only)
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+```bash
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### 3. Run on Android
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```bash
+npm run android
+```
 
-## Step 3: Modify your app
+## How to Use
 
-Now that you have successfully run the app, let's make changes!
+1. **Add Item** - Click "+ Add New Item" button, enter item name (2-50 characters), click "Add Item"
+2. **View Items** - All items are displayed in a list below the form
+3. **Delete Item** - Click the "✕" button on any item and confirm deletion
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## Project Structure
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```
+src/
+├── navigation/
+│   └── RootNavigator.js
+├── screens/
+│   └── items/ItemsScreen.js
+├── redux/
+│   ├── store.js
+│   ├── slices/itemsSlice.js
+│   └── selectors/itemsSelectors.js
+├── components/
+│   ├── common/
+│   │   ├── Button.js
+│   │   └── Input.js
+│   └── headers/AppHeader.js
+├── theme/
+│   ├── colors.js
+│   └── spacing.js
+└── App.js
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## Troubleshooting
 
-## Congratulations! :tada:
+**Issue: Module not found errors**
 
-You've successfully run and modified your React Native App. :partying_face:
+- Make sure all files exist in `src/` folder
+- Check file paths in imports
 
-### Now what?
+**Issue: Redux context error**
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+- Ensure `App.js` wraps the app with `<Provider store={store}>`
 
-# Troubleshooting
+**Issue: Navigation not working**
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+- Run: `npm install @react-navigation/native @react-navigation/native-stack react-native-screens react-native-safe-area-context`
 
-# Learn More
+**Clear cache and reinstall:**
 
-To learn more about React Native, take a look at the following resources:
+```bash
+npm start -- --reset-cache
+```
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## License
+
+MIT
